@@ -1,46 +1,22 @@
 <div>
 
   <div class="container">
-
-    <div>
-    <h2> Miejsce na dodawania zadań </h2>
-      <input style="width: 400px;" [(ngModel)]="task">
-      <button (click)="addToList()"> Dodaj </button>
-
-
-    </div>
-
+    <app-adder (eventProducer)="addToList($event)"></app-adder>
   </div>
 
   <div class="container">
 
-    <div>
-      <h2>Lista zadań do wykonania</h2> <br>
-      <ng-container *ngIf="listOfTasks.length>0;then todo; else nothingtodo"></ng-container>
-      <ng-template #todo>
-      <ng-container *ngFor="let element of listOfTasks">
-        {{element}}
-        <button (click)="remove(element)">Usuń</button>
-        <button (click)="done(element)">Done</button>
-        <br>
-      </ng-container>
-    </ng-template>
-      <ng-template #nothingtodo>
-        NOTHING TO DO
-        <br>
+    <app-manager
+    [tasksActive]="listOfTasks"
+    (removeEvent)="remove($event)"
+    (doneEvent)="done($event)"
+    >
 
-      </ng-template>
+    </app-manager>
 
-    </div>
+    <app-presenter [doneTasks] = "listOfTasksDone">
+      </app-presenter>
 
-    <div>
-    <h2> Zadania wykonane: {{listOfTasksDone.length}}</h2> <br>
-      <ng-container *ngFor="let element of listOfTasksDone">
-        {{element}}
-        <br>
-      </ng-container>
-    </div>
 
-  </div>
-
+</div>
 </div>

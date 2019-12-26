@@ -8,15 +8,13 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'lista-zadan';
 
-  task: string;
   listOfTasks: Array<string> = [];
   listOfTasksDone: Array<string> = [];
 
   constructor() {}
 
-  addToList() {
-    this.listOfTasks.push(this.task);
-    this.task = '';
+  addToList(event: string) {
+    this.listOfTasks.push(event);
   }
 
   remove(element: string){
