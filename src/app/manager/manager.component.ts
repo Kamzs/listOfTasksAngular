@@ -1,38 +1,30 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { element } from 'protractor';
-import { stringify } from 'querystring';
+import { TasksService } from '../services/tasks.service';
+import { Task } from '../models/task';
 
 @Component({
   selector: 'app-manager',
   templateUrl: './manager.component.html',
   styleUrls: ['./manager.component.css']
 })
-export class ManagerComponent implements OnInit {
+export class ManagerComponent {
 
-  @Input()
-  tasksActive: Array<string>;
+  tasksActive: Array<Task>;
 
-  @Output()
-  removeEvent = new EventEmitter<string>();
-
-  @Output()
-  doneEvent = new EventEmitter<string>();
-
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private service: TasksService) {
+    this.service.getChangedListOfTasks().subscribe((updated: Array<Task>) => {this.tasksActive = updated; });
   }
 
-  remove(el: string) {
-    this.removeEvent.emit(el);
+  remove(el: Task) {
+    this.service.remove(el);
   }
 
-  done(el: string) {
-    this.doneEvent.emit(el);
+  done(el: Task) {
+    this.service.done(el);
   }
 
   getColor(): string {
-    if (this.tasksActive.length > 2) {
+    if (this.service.listOfTasks.length > 2) {
       return 'red';
     } else {
       return 'green'; }

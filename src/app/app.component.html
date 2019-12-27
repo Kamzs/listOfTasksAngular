@@ -1,21 +1,14 @@
 <div>
 
   <div class="container">
-    <app-adder (eventProducer)="addToList($event)"></app-adder>
+    <app-adder></app-adder>
   </div>
 
   <div class="container">
 
-    <app-manager
-    [tasksActive]="listOfTasks"
-    (removeEvent)="remove($event)"
-    (doneEvent)="done($event)"
-    >
+    <app-manager></app-manager>
 
-    </app-manager>
-
-    <app-presenter [doneTasks] = "listOfTasksDone">
-      </app-presenter>
+    <app-presenter></app-presenter>
 
 
 </div>
