@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { element } from 'protractor';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-manager',
@@ -28,6 +29,13 @@ export class ManagerComponent implements OnInit {
 
   done(el: string) {
     this.doneEvent.emit(el);
+  }
+
+  getColor(): string {
+    if (this.tasksActive.length > 2) {
+      return 'red';
+    } else {
+      return 'green'; }
   }
 
 }

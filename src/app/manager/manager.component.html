@@ -1,12 +1,13 @@
 <h2>Lista zadań do wykonania</h2> <br>
-<ng-container *ngIf="tasksActive.length>0; then todo; else nothingtodo"></ng-container>
+<ng-container  *ngIf="tasksActive.length>0; then todo; else nothingtodo"></ng-container>
 <ng-template #todo>
-<ng-container *ngFor="let element of tasksActive">
-  {{element}}
-  <button (click)="remove(element)">Usuń</button>
-  <button (click)="done(element)">Done</button>
+  <ol>
+<li  *ngFor="let element of tasksActive">
+  <p [ngStyle]="{color: getColor()}">{{element}} </p>
+  <button type="button" class="btn btn-danger" (click)="remove(element)">Usuń</button>
+  <button type="button" class="btn btn-success" (click)="done(element)">Done</button>
   <br>
-</ng-container>
+</ol>
 </ng-template>
 <ng-template #nothingtodo>
   NOTHING TO DO
