@@ -15,4 +15,8 @@ export class PresenterComponent implements OnInit {
   ngOnInit() {
   }
 
+  checkIfOdd(i: number): boolean{
+    if  (i % 2 === 0 ) { return false; } else { return true; }
+  }
+
 }

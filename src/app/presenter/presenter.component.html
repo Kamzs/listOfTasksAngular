@@ -1,5 +1,21 @@
 <h2> Zadania wykonane: {{doneTasks.length}}</h2> <br>
-<ng-container *ngFor="let element of doneTasks">
-  {{element}}
+
+na piechote
+<ul >
+
+  <ng-container *ngFor="let element of doneTasks; let i = index">
+    <li [ngClass]="{'odd-li':checkIfOdd(i)===true}">{{element}}</li>
   <br>
 </ng-container>
+
+</ul>
+
+gotowe odd
+<ul >
+
+  <ng-container *ngFor="let element of doneTasks; let oddEl = odd">
+    <li [ngClass]="{'odd-li':oddEl===true}">{{element}}</li>
+  <br>
+</ng-container>
+
+</ul>
