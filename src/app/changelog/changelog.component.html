@@ -1,0 +1,23 @@
+<h2>changelog</h2>
+
+<ng-container *ngIf="changeOfTasks.length>0">
+<table class="table table-striped table-dark">
+
+  <tr>
+    <th>Name</th>
+    <th>Created</th>
+    <th>Removed</th>
+    <th>Done</th>
+
+  </tr>
+
+  <tr *ngFor="let element of changeOfTasks">
+
+      <td>{{element.name}}</td>
+      <td>{{element.created | date:'medium'}}</td>
+      <td>{{element.removed | date:'medium'}}</td>
+      <td>{{element.done | date:'medium'}}</td>
+
+  </tr>
+</table>
+</ng-container>

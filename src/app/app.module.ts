@@ -6,13 +6,15 @@ import { FormsModule } from '@angular/forms';
 import { AdderComponent } from './adder/adder.component';
 import { ManagerComponent } from './manager/manager.component';
 import { PresenterComponent } from './presenter/presenter.component';
+import { ChangelogComponent } from './changelog/changelog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdderComponent,
     ManagerComponent,
-    PresenterComponent
+    PresenterComponent,
+    ChangelogComponent
   ],
   imports: [
     BrowserModule,
