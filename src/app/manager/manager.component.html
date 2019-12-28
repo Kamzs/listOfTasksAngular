@@ -2,8 +2,8 @@
 <ng-container  *ngIf="tasksActive.length>0; then todo; else nothingtodo"></ng-container>
 <ng-template #todo>
   <ol>
-<li  *ngFor="let element of tasksActive">
-  <p [ngStyle]="{color: getColor()}">{{element.name}} </p>
+<li  *ngFor="let element of tasksActive | sorter">
+  <p [ngStyle]="{color: getColor()}">{{element.name | taskTrasformer: '!!!!'}} </p>
   <button type="button" class="btn btn-danger" (click)="remove(element)">Usuń</button>
   <button type="button" class="btn btn-success" (click)="done(element)">Done</button>
   <br>

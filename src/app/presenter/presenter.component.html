@@ -2,7 +2,7 @@
 
 <ul>
   <ng-container *ngFor="let element of doneTasks; let oddEl = odd">
-    <li [ngClass]="{'odd-li':oddEl===true}">{{element.name}}</li>
+    <li appDate appChecked [ngClass]="{'odd-li':oddEl===true}">{{element.name}}</li>
   <br>
   </ng-container>
 </ul>

@@ -15,9 +15,9 @@ export class TasksService {
 
   constructor() {
     this.listOfTasks = [
-      {name: 'nauka angulara', created: new Date()},
-      {name: 'nauka springa', created: new Date()},
-      {name: 'nauka algorytmow', created: new Date()}
+      {name: 'D. nauka angulara', created: new Date()},
+      {name: 'B. nauka springa', created: new Date()},
+      {name: 'C. nauka algorytmow', created: new Date()}
     ];
     this.changedListOfTasks.next(this.listOfTasks);
   }

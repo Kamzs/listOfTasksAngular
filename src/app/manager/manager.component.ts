@@ -12,7 +12,7 @@ export class ManagerComponent {
   tasksActive: Array<Task>;
 
   constructor(private service: TasksService) {
-    this.service.getChangedListOfTasks().subscribe((updated: Array<Task>) => {this.tasksActive = updated; });
+    this.service.getChangedListOfTasks().subscribe((updated: Array<Task>) => {this.tasksActive = updated.slice(); });
   }
 
   remove(el: Task) {
