@@ -1,5 +1,8 @@
 export class Task {
+  _id?: {
+    "$oid": string};
   name: string;
-  created: Date;
-  done?: Date;
+  created: string;
+  done?: string;
+  isDone: boolean;
 }

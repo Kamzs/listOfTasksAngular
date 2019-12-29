@@ -14,7 +14,7 @@ export class AdderComponent {
   constructor(private service: TasksService) { }
 
   pushUp() {
-    const newTask: Task = { name: this.task, created : new Date() };
+    const newTask: Task = { name: this.task, created : new Date().toLocaleString(), isDone: false };
     this.service.addToList(newTask);
     this.task = '';
   }
